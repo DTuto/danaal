@@ -13,4 +13,9 @@ public class PrincipalController {
 		model.addAttribute("Mensaje","PRueba spring");
 		return "home";
 	}
+	
+	@RequestMapping(value = "/quienesSomos", method = RequestMethod.GET)
+	public String sobreIED(ModelMap model) {
+		return "sobreIED/quienesSomos";
+	}
 }

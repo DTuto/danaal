@@ -23,20 +23,20 @@
 						<header>
 							<nav>
 								<ul>
-									<li><a ref="/index.htm">Inicio</a></li>
+									<li><a href="home.htm">Inicio</a></li>
 									<li>
-										<a ref="/sobreIED.htm">Sobre IED</a>
+										<a>Sobre IED</a>
 										<ul>
-											<li><a ref="/index.htm">Quienes Somos</a></li>
-											<li><a ref="/sobreIED.htm">Visión, Misión y valores</a></li>
-											<li><a ref="/sectores.htm">Certificaciones</a></li>
-											<li><a ref="/servicios.htm">Alianzas</a></li>
+											<li><a href="quienesSomos.htm">Quienes Somos</a></li>
+											<li><a href="">Visión, Misión y valores</a></li>
+											<li><a href="">Certificaciones</a></li>
+											<li><a href="">Alianzas</a></li>
 										</ul>
 									</li>
-									<li><a ref="/sectores.htm">Sectores</a></li>
-									<li><a ref="/servicios.htm">Servicios</a></li>
-									<li><a ref="/noticias.htm">Noticias</a></li>
-									<li><a ref="/contactenos.htm">Contactenos</a></li>
+									<li><a href="">Sectores</a></li>
+									<li><a href="">Servicios</a></li>
+									<li><a href="">Noticias</a></li>
+									<li><a href="">Contactenos</a></li>
 								</ul>
 							</nav>
 						</header>

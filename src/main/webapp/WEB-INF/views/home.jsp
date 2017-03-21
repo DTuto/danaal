@@ -1,15 +1,48 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE HTML>
 <%@ include file="/WEB-INF/views/util/include.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 	<head>
+		<%@ include file="/WEB-INF/views/util/styles.jsp"%>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Página Inicio IED</title>
 	</head>
 	<body>
-		<h1>
-			<fmt:message key="title"/>
-		</h1>
+		<div>
+			<table>
+				<tr>
+					<td colspan="1">
+						<img alt="Logotipo prueba" src="images/logo_IED.png" width="150" height="120"/>
+					</td>
+					<td colspan="1">
+						<h1> Prueba HTML, JS, CCS </h1>
+					</td>
+					<td colspan="2">
+					</td>
+					<td>
+						<header>
+							<nav>
+								<ul>
+									<li><a ref="/index.htm">Inicio</a></li>
+									<li>
+										<a ref="/sobreIED.htm">Sobre IED</a>
+										<ul>
+											<li><a ref="/index.htm">Quienes Somos</a></li>
+											<li><a ref="/sobreIED.htm">Visión, Misión y valores</a></li>
+											<li><a ref="/sectores.htm">Certificaciones</a></li>
+											<li><a ref="/servicios.htm">Alianzas</a></li>
+										</ul>
+									</li>
+									<li><a ref="/sectores.htm">Sectores</a></li>
+									<li><a ref="/servicios.htm">Servicios</a></li>
+									<li><a ref="/noticias.htm">Noticias</a></li>
+									<li><a ref="/contactenos.htm">Contactenos</a></li>
+								</ul>
+							</nav>
+						</header>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</body>
 </html>

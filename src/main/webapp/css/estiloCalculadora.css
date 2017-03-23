@@ -1,0 +1,33 @@
+.styleResult {
+	width: 280px;
+    text-align: -webkit-right;
+}
+
+.styleDropdown {
+	width: 90px;
+}
+
+.styleContainer {
+	padding: 0;
+}
+
+.buttonSimple {
+	background: #E6E6E6;
+	outline: none;
+	width: 52px;
+}
+
+.buttonDobleVertical {
+	background: #E6E6E6;
+	outline: none;
+	position: absolute;
+	width: 52px;
+    height: 68px;
+    left: 378px;
+}
+
+.buttonDobleHorizontal {
+	background: #E6E6E6;
+	outline: none;
+	width: 109px;
+}

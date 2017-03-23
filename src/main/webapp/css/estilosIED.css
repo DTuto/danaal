@@ -2,6 +2,9 @@ body {
 	background: url(images/fondo.jpg)
 }
 
+section {
+	
+}
 /*INI Menu desplegable*/
 nav {
 	position: relative;
@@ -31,6 +34,7 @@ nav ul li a {
 	font-style: italic;
 	color: #000000;
 	line-height: 100%;
+	text-decoration:none;
 }
 
 nav ul li a:hover {
@@ -110,3 +114,33 @@ nav ul li a.last {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+.containerCenteredRight {
+	float: right;
+}
+
+/*INI Propiedades para los iconos*/
+.sizeIcono {
+	width: 25px;
+	height: 25px;
+	padding: 4px;
+}
+
+.linkIcono {
+	text-decoration:none;
+}
+img.iconoPrincipal {
+	width: 150px;
+	height: 120px;
+	position: relative;
+	top: 50px;
+}
+/*FIN Propiedades para los iconos*/
+
+/*INI Propiedades para DIV menu principal*/
+div.menu_principal *{
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+/*FIN Propiedades para DIV menu principal*/

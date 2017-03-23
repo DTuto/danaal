@@ -13,6 +13,7 @@
 	<body>
 		<input type="hidden" name="valorSession" id="valorSession">
 		<input type="hidden" name="operacionRealizada" id="operacionRealizada">
+		<input type="hidden" name="valorMemoria" id="valorMemoria">
 		
 		<div class="container" ng-app="calculadora" ng-controller="calculadoraCtrl">
 			<div class="container styleContainer">

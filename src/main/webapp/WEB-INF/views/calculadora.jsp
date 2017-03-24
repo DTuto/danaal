@@ -14,7 +14,8 @@
 		<input type="hidden" name="valorSession" id="valorSession">
 		<input type="hidden" name="operacionRealizada" id="operacionRealizada">
 		<input type="hidden" name="valorMemoria" id="valorMemoria">
-		
+		<input type="hidden" name="operacion" id="operacion">
+		<input type="hidden" name="seRealizoOperacion" id="seRealizoOperacion">
 		<div class="container" ng-app="calculadora" ng-controller="calculadoraCtrl">
 			<div class="container styleContainer">
 				<div class="w3-dropdown-hover">

@@ -17,16 +17,25 @@ app.controller("calculadoraCtrl", function($scope) {
 				|| $scope.resultado == "Entrada no valida") {
 			return;
 		}
-		
-		botonesUnEvento($scope, event.target.id);
-		botonesMemoria($scope, event.target.id);
-		botonesOperaciones($scope, event.target.id);
-		
 		if(event.target.id == "buttonFlecha"){
+			if($scope.operacionRealizada)
+				return;
+			var tamanyo = ($scope.resultado + "").length;
+			if(tamanyo <= 1){
+				$scope.resultado = "0";
+				return;
+			}
+			$scope.resultado = ($scope.resultado + "").substr(0, tamanyo - 1);
 			
 		}else if(event.target.id == "buttonPunto" && validarAgregar($scope.resultado,".")) {
 			$scope.resultado = $scope.resultado + ".";
 		}
+		if(botonesOperaciones($scope, event.target.id))
+			return;
+		if(botonesMemoria($scope, event.target.id))
+			return;
+		if(botonesUnEvento($scope, event.target.id))
+			return;
 		accionesBotonesNumeros($scope, event.target.id);
 	};
 });
@@ -39,7 +48,7 @@ function iniciarDatos($scope) {
 		$scope.resultado = "0";
 	}
 	if($scope.valorMemoria == null) {
-		$scope.valorMemoria = ""
+		$scope.valorMemoria = "0";
 	}
 }
 
@@ -52,7 +61,7 @@ function botonesUnEvento($scope, opcion) {
 				$scope.resultado = 1 / parseFloat($scope.resultado);
 			}
 			$scope.operacionRealizada = true;
-			break;
+			return true;
 		case "buttonMasMenos":
 			if ($scope.resultado == "0")
 				return;
@@ -60,22 +69,22 @@ function botonesUnEvento($scope, opcion) {
 				$scope.resultado = ($scope.resultado + "").substr(1);
 			else
 				$scope.resultado = "-" + $scope.resultado;
-			break;
+			return true;
 		case "buttonRadical":
 			if (($scope.resultado + "").indexOf("-") > -1)
 				$scope.resultado = "Entrada no valida";
 			else
 				$scope.resultado = Math.pow(parseFloat($scope.resultado), 1/2);
 			$scope.operacionRealizada = true;
-			break;
+			return true;
 		case "buttonPorcentaje":
-			break;
+			return true;
 		default:
 			if ($scope.operacionRealizada) {
 				$scope.resultado = 0;
 				$scope.operacionRealizada = false;
 			}
-			break;
+			return false;
 	}
 }
 
@@ -83,41 +92,86 @@ function botonesMemoria($scope, opcion) {
 	switch(opcion) {
 		case "buttonMC":
 			$scope.valorMemoria = 0;
-			break;
+			return true;
 		case "buttonMR":
 			$scope.resultado = parseFloat($scope.valorMemoria);
-			break;
+			return true;
 		case "buttonMS":
 			$scope.valorMemoria = parseFloat($scope.resultado);
-			break;
+			return true;
 		case "buttonMmas":
 			$scope.valorMemoria = parseFloat($scope.valorMemoria) + parseFloat($scope.resultado);
-			break;
+			return true;
 		case "buttonMmenos":
 			$scope.valorMemoria = parseFloat($scope.valorMemoria) - parseFloat($scope.resultado);
+			return true;
+		default:
+			return false;
+	}
+}
+
+function realizarOperacion($scope) {
+	switch($scope.operacion) {
+		case "/":
+			$scope.resultado = parseFloat($scope.valorMemoria + "")/parseFloat($scope.resultado + "");
+			$scope.valorMemoria = "0";
+			break;
+		case "*":
+			$scope.resultado = parseFloat($scope.valorMemoria + "")*parseFloat($scope.resultado + "");
+			$scope.valorMemoria = "0";
+			break;
+		case "+":
+			$scope.resultado = parseFloat($scope.valorMemoria + "")+parseFloat($scope.resultado + "");
+			$scope.valorMemoria = "0";
+			break;
+		case "-":
+			$scope.resultado = parseFloat($scope.valorMemoria + "")-parseFloat($scope.resultado + "");
+			$scope.valorMemoria = "0";
 			break;
 		default:
 			break;
 	}
 }
 
+function realizarValidarOperacion($scope) {
+	if(($scope.valorMemoria + "") == ($scope.resultado + ""))
+		return;
+	if(($scope.valorMemoria + "") == "0"){
+		$scope.valorMemoria = $scope.resultado;
+		return;
+	}
+	realizarOperacion($scope);
+}
+
 function botonesOperaciones($scope, opcion) {
 	switch(opcion) {
-	case "buttonDividido":
-		break;
-	case "buttonMultiplicado":
-		break;
-	case "buttonMenos":
-		break;
-	case "buttonMas":
-		break;
-	case "buttonIgual":
-		$scope.operacionRealizada = true;
-		break;
-	case "":
-		break;
-	default:
-		break;
+		case "buttonDividido":
+			$scope.operacion = "/";
+			realizarValidarOperacion($scope);
+			$scope.operacionRealizada = true;
+			return true;
+		case "buttonMultiplicado":
+			$scope.operacion = "*";
+			realizarValidarOperacion($scope);
+			$scope.operacionRealizada = true;
+			return true;
+		case "buttonMenos":
+			$scope.operacion = "-";
+			realizarValidarOperacion($scope);
+			$scope.operacionRealizada = true;
+			return true;
+		case "buttonMas":
+			$scope.operacion = "+";
+			realizarValidarOperacion($scope);
+			$scope.operacionRealizada = true;
+			return true;
+		case "buttonIgual":
+			$scope.operacionRealizada = true;
+			return true;
+		case "":
+			return true;
+		default:
+			return false;
 	}
 }
 

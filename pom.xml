@@ -10,9 +10,19 @@
 	<url>http://maven.apache.org</url>
 	
 	<properties>
-		<spring.version>4.3.5.RELEASE</spring.version>
+		<spring.version>4.0.5.RELEASE</spring.version>
+		<spring-security.version>4.2.2.RELEASE</spring-security.version>
+		<jackson.version>2.7.5</jackson.version>
+		<oracle.version>10.2.0.2.0</oracle.version>
+		<hibernate.version>4.3.6.Final</hibernate.version>
+		<tomcat.version>7.0.42</tomcat.version>
 	</properties>
 	<dependencies>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.danaal</groupId> -->
+<!-- 			<artifactId>danaal-jar</artifactId> -->
+<!-- 			<version>1.0.0</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -34,7 +44,7 @@
 		    <scope>provided</scope>
 		</dependency>
 		
-		<!-- SPRING -->
+		<!-- SPRING MVC -->
         <dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -42,10 +52,14 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
 			<version>${spring.version}</version>
         </dependency>
-		<!-- Spring MVC -->
         <dependency>
 			<groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
@@ -56,14 +70,51 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
 		</dependency>
+		<dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
 		
 		<!-- Spring security -->
 		<dependency>
 	        <groupId>org.springframework.security</groupId>
 	        <artifactId>spring-security-taglibs</artifactId>
-	        <version>3.0.2.RELEASE</version>
+	        <version>${spring-security.version}</version>
     	</dependency>
     	
+    	<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		
+		<!-- Oracle JDBC driver -->
+        <dependency>
+		    <groupId>com.oracle</groupId>
+		    <artifactId>ojdbc7</artifactId>
+		    <version>12.1.0.1</version>
+		</dependency>
+        
+        <!-- Hibernate -->
+        <dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		   <version>${hibernate.version}</version>
+		</dependency>
+        <dependency>
+		   <groupId>org.javassist</groupId>
+		   <artifactId>javassist</artifactId>
+		   <version>3.18.2-GA</version>
+		</dependency>
+		
+		<!-- Connection pool -->
+		<dependency>
+		    <groupId>org.apache.tomcat</groupId>
+		    <artifactId>tomcat-dbcp</artifactId>
+		    <version>${tomcat.version}</version>
+		</dependency>
+		
     	<!-- jstl -->
     	<dependency>
 			<groupId>jstl</groupId>
